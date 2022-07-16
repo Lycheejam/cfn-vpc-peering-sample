@@ -41,7 +41,6 @@ Resources:
       CreditSpecification:
         CPUCredits: standard
       DisableApiTermination: !Ref IsEnableTerminationProtection
-      IamInstanceProfile: String
       ImageId: !Ref AmiId
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyPairName
