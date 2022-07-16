@@ -1,0 +1,41 @@
+---
+#
+# チュートリアル: 別の AWS アカウント の VPC とピア接続する - AWS CloudFormation
+# https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html
+#
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create a VPC and a VPC Peering connection using the PeerRole to accept.
+
+Parameters:
+  PeerVPCAccountId:
+    Type: String
+  PeerVPCId:
+    Type: AWS::EC2::VPC::Id
+  PeerRoleArn:
+    Type: String
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+
+  VpcPeeringConnectionName:
+    Type: String
+    Description: VPC peering connection name.
+
+Conditions:
+  IsCrossAcount: !Not [!Equals [!Ref VpcPeeringConnectionName, '']]
+
+Resources:
+  vpcPeeringConnection:
+    Type: AWS::EC2::VPCPeeringConnection
+    Properties:
+      VpcId: !Ref VpcId
+      PeerVpcId: !Ref PeerVPCId
+      PeerOwnerId: !If [IsCrossAcount, !Ref PeerVPCAccountId, !Ref AWS::AccountId]
+      PeerRoleArn: !If [IsCrossAcount, !Ref PeerRoleArn, !Ref AWS::NoValue]
+      Tags:
+        - Key: Name
+          Value: !Ref VpcPeeringConnectionName
+
+Outputs:
+  VPCPeeringConnectionId:
+    Value: !Ref vpcPeeringConnection
