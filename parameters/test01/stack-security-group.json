@@ -8,6 +8,10 @@
     {
       "ParameterKey": "HomeCidr",
       "ParameterValue": "192.168.0.1/32"
+    },
+    {
+      "ParameterKey": "VpcPeeringSecurityGroup",
+      "ParameterValue": "test02-public-sg"
     }
   ],
   "ChangeSetName": "change-set"
