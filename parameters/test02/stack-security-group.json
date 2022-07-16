@@ -1,0 +1,14 @@
+{
+  "StackName": "stack-test02-security-group",
+  "Parameters": [
+    {
+      "ParameterKey": "Environment",
+      "ParameterValue": "test02"
+    },
+    {
+      "ParameterKey": "HomeCidr",
+      "ParameterValue": "192.168.0.1/32"
+    }
+  ],
+  "ChangeSetName": "change-set"
+}

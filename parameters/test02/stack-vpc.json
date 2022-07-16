@@ -1,0 +1,26 @@
+{
+  "StackName": "stack-test02-vpc",
+  "Parameters": [
+    {
+      "ParameterKey": "Environment",
+      "ParameterValue": "test02"
+    },
+    {
+      "ParameterKey": "VpcCidr",
+      "ParameterValue": "10.2.0.0/16"
+    },
+    {
+      "ParameterKey": "PublicSubnetCidrA",
+      "ParameterValue": "10.2.1.0/24"
+    },
+    {
+      "ParameterKey": "PublicSubnetCidrC",
+      "ParameterValue": "10.2.2.0/24"
+    },
+    {
+      "ParameterKey": "HomeCidr",
+      "ParameterValue": "192.168.0.1/32"
+    }
+  ],
+  "ChangeSetName": "change-set"
+}
