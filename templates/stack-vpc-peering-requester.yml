@@ -8,13 +8,15 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Create a VPC and a VPC Peering connection using the PeerRole to accept.
 
 Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
   PeerVPCAccountId:
     Type: String
-  PeerVPCId:
-    Type: AWS::EC2::VPC::Id
+    Default: AWS::NoValue
   PeerRoleArn:
     Type: String
-  VpcId:
+    Default: AWS::NoValue
+  PeerVPCId:
     Type: AWS::EC2::VPC::Id
 
   VpcPeeringConnectionName:
@@ -22,7 +24,7 @@ Parameters:
     Description: VPC peering connection name.
 
 Conditions:
-  IsCrossAcount: !Not [!Equals [!Ref VpcPeeringConnectionName, '']]
+  IsCrossAcount: !Not [!Equals [!Ref PeerVPCAccountId, AWS::NoValue]]
 
 Resources:
   vpcPeeringConnection:
