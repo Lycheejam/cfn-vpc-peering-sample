@@ -1,0 +1,18 @@
+{
+  "StackName": "stack-test01-vpc-peering-requester",
+  "Parameters": [
+    {
+      "ParameterKey": "VpcId",
+      "ParameterValue": "vpc-027fed8fabc9a70bb"
+    },
+    {
+      "ParameterKey": "PeerVPCId",
+      "ParameterValue": "vpc-0198ca9f1de6b2610"
+    },
+    {
+      "ParameterKey": "VpcPeeringConnectionName",
+      "ParameterValue": "test01-to-test02"
+    }
+  ],
+  "ChangeSetName": "change-set"
+}
