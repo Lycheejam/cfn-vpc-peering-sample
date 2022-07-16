@@ -20,6 +20,14 @@
     {
       "ParameterKey": "HomeCidr",
       "ParameterValue": "192.168.0.1/32"
+    },
+    {
+      "ParameterKey": "VpcPeeringId",
+      "ParameterValue": "pcx-0c2d86d644cb37481"
+    },
+    {
+      "ParameterKey": "VpcPeeringVpcCidr",
+      "ParameterValue": "10.1.0.0/16"
     }
   ],
   "ChangeSetName": "change-set"
