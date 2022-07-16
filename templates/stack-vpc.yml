@@ -40,19 +40,22 @@ Parameters:
   HostedZoneName:
     Description: Specify the domain name of the dhcp options to be set for vpc.
     Type: String
+    Default: AWS::NoValue
 
   VpcPeeringId:
     Type: String
     Description: Vpc peering id.
+    Default: AWS::NoValue
   VpcPeeringVpcCidr:
     Type: String
     Description: CIDR block should be used to VPC peering target VPC.
     AllowedPattern: "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{2})"
     ConstraintDescription: Must be a valid IP CIDR range of the form x.x.x.x/x. (e.g. 172.21.1.0/24)
+    Default: 172.0.0.1/32
 
 Conditions:
-  IsCreateDhcpOptions: !Not [!Equals [!Ref HostedZoneName, '']]
-  IsVpcPeeringConnected: !Not [!Equals [!Ref VpcPeeringId, '']]
+  IsCreateDhcpOptions: !Not [!Equals [!Ref HostedZoneName, AWS::NoValue]]
+  IsVpcPeeringConnected: !Not [!Equals [!Ref VpcPeeringId, AWS::NoValue]]
 
 Resources:
   Vpc:

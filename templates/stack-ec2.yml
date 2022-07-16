@@ -58,4 +58,4 @@ Outputs:
   Instance01:
     Value: !Ref Instance01
     Export:
-      Name: !Join ['', [!Ref Environment, Instance01]]
+      Name: !Join ['-', [!Ref Environment, Instance01]]

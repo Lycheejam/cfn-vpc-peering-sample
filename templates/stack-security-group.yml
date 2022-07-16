@@ -16,9 +16,10 @@ Parameters:
   VpcPeeringSecurityGroup:
     Type: String
     Description: Set the security group ID of the environment to which the vpc peering connection is to be made.
+    Default: AWS::NoValue
 
 Conditions:
-  IsVpcPeeringConnected: !Not [!Equals [!Ref VpcPeeringSecurityGroup, '']]
+  IsVpcPeeringConnected: !Not [!Equals [!Ref VpcPeeringSecurityGroup, AWS::NoValue]]
 
 Resources:
   PublicSecurityGroup:
